@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<title>Register</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+	<link href="https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet" />
+	<link href="https://fonts.googleapis.com/css?family=Abel|Open+Sans:400,600" rel="stylesheet" />
+	<link rel="icon" href="/images/favicon.jpg" type="image/x-icon"/>
+	<link href="/stylesheets/loginForm.css" rel="stylesheet">
+
+</head>
+<body>
+
+<div class="login-page">
+  <div class="form">
+  <!--LOGIN FORM -->
+    <form class="login-form" method="post" action="/newUser">
+		<h1>Register</h1>
+		 <% if( typeof(errorMessage) !== 'undefined' ) {%>
+						 <h5 align="center" class="margin-base-vertical"><code><%=errorMessage%></code></h5>
+       	 <%}%>
+		</br>
+      <input type="text" placeholder="email" name="email"/>
+	  <input type="text" placeholder="username" name="username"/>
+      <input type="password" placeholder="password" name="password"/>
+      <button type="submit">Register</button>
+      
+	  <p class="message">Already registered? <a href="/">Login</a></p>
+    </form>
+	<!--LOGIN FORM-->
+  </div>
+</div>
+</body>
+</html>

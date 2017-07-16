@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Stories</title>
+    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">
+  <link href="https://netdna.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
+  <script src="https://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.7.1/summernote.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.7.1/summernote.js"></script>
+	 <link href="stylesheets/bootstrap.min.css" rel="stylesheet">
+	
+	<link rel='stylesheet' href='stylesheets/custom.css' />
+	
+    <!-- Theme CSS -->
+    <link href="stylesheets/clean-blog.min.css" rel="stylesheet">
+</head>
+
+<body>
+ <% include partials/navMenu.ejs %>
+<!-- HEADER -->
+  <header class="intro-header" style="background-image: url('images/home-bg.jpg')">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="site-heading">
+                       <h1> Our Blog</h1>
+                        <hr class="small">
+                        <span class="subheading">Our Thoughts For The World To Read</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+	
+	<!--HEADER-->
+
+    
+    <!-- Main Content -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+			 <% if( typeof(stories) !== 'undefined' ) {%>
+
+                           <% for(var i=0; i < stories.length; i++) { %>
+              <div class="post-preview">
+                    <a href='/stories/<%- stories[i].slug%>'>
+                        <h2 class="post-title">
+                            <%- stories[i].title %>
+                        </h2>
+						<h3 class="post-subtitle"><%- stories[i].summary %>  <b> - <a href='/stories/<%- stories[i].slug%>'>Read more</a> </b></h3>
+						<h4>Posted by <code><%=stories[i].author%> on <%-stories[i].created_at.toUTCString()  %> </code></h4>
+					
+                    </a>
+                    
+                </div>
+                <hr>
+				    <br/><br/>
+                           <% } %>
+                        <%}%>
+               
+               
+                <!-- Pager -->
+				 <ul class="pager">
+                    <li class="next">
+                        <a href="#">All Post &rarr;</a>
+                    </li>
+                
+                    <li class="next">
+                        <a href="/new-story">Add Story &rarr;</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
+	
+						  
+                           
+</body>
+
+</html>

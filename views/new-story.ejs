@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Add Story</title>
+    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">
+  <link href="https://netdna.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
+  <script src="https://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.7.1/summernote.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.7.1/summernote.js"></script>
+	 <link href="stylesheets/bootstrap.min.css" rel="stylesheet">
+	
+	<link rel='stylesheet' href='stylesheets/custom.css' />
+	
+    <!-- Theme CSS -->
+    <link href="stylesheets/clean-blog.min.css" rel="stylesheet">
+</head>
+
+<body>
+ <% include partials/navMenu.ejs %>
+<!-- HEADER -->
+  <header class="intro-header" style="background-image: url('images/login.jpg')">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="site-heading">
+                       <h1 style="color:black;"> Our Blog</h1>
+                        <hr class="small">
+                        <span style="color:black;"class="subheading">Our Thoughts For The World To Read</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+	
+<!--HEADER -->
+	 <div class="row">
+        <div class="container">
+           <div class="col-lg-12">
+            <form action="/add-story" method="post">
+
+                <div class="form-group">
+                   <label for="name" class="col-sm-2 control-label">Title</label>
+                     <div class="col-sm-10">
+                     <input type="text"name="title" required class="form-control" placeholder="Story Title"/>
+
+                     </div>
+
+                 </div><br/></br>
+
+                 <div class="form-group">
+                    <label for="name" class="col-sm-2 control-label">Image Link</label>
+                      <div class="col-sm-10">
+                      <input type="text"name="imageLink" required class="form-control" placeholder="Upload the image to imgur and put the direct link here"/>
+                      </div>
+                </div>
+                 <br/></br>
+
+                 <div class="form-group">
+                                    <label for="message" class="col-sm-2 control-label">Summary</label>
+                                      <div class="col-sm-10">
+                                       <textarea class="form-control" required name="summary" rows="4" placeholder="A short description"></textarea>
+                                      </div>
+                </div><br/><br/></br></br>
+
+                <div class="form-group">
+                  <label for="name" class="col-sm-2 control-label">Description</label>
+                   <div class="col-lg-10">
+                    <textarea name="content" id="storyContent" required rows="8" class="form-control"></textarea>
+                   </div>
+                </div>
+				<br/><br/><br/></br>
+                <div class="form-group">
+                     <div class="col-sm-offset-9 col-sm-6">
+                       <button type="submit" class="btn btn-primary">Submit your Story</button>
+                     </div>
+                </div>
+
+            </form>
+
+
+            </div>
+        </div>
+    </div>
+ 
+
+  <script>
+    $(document).ready(function() {
+        $('#storyContent').summernote({
+          height:250,
+          toolbar: [
+
+         ['style', ['bold', 'italic', 'underline', 'clear']],
+         ['font', ['strikethrough', 'superscript', 'subscript']],
+         ['fontsize', ['fontsize']],
+         ['color', ['color']],
+         ['para', ['ul', 'ol', 'paragraph']],
+         ['height', ['height']],
+         ['link', ['linkDialogShow', 'unlink']],
+         ['table', ['table']]
+
+                 ]
+        });
+    });
+  </script> 
+</body>
+</html>
